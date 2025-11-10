@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  usuarios:
+    build: ./usuarios
+    container_name: usuarios
+    hostname: usuarios.vino.local
+    networks:
+      vino_net:
+        ipv4_address: 192.168.0.10
+    ports:
+      - "5000:5000"
+
+  catalogo:
+    build: ./catalogo
+    container_name: catalogo
+    hostname: catalogo.vino.local
+    networks:
+      vino_net:
+        ipv4_address: 192.168.0.11
+    ports:
+      - "5001:5001"
+
+  jenkins:
+    build: ./jenkins
+    container_name: jenkins
+    hostname: jenkins.vino.local
+    networks:
+      vino_net:
+        ipv4_address: 192.168.0.12
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+networks:
+  vino_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24
