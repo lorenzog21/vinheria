@@ -36,4 +36,4 @@ pipeline {
             echo 'Falha no pipeline 🚨'
         }
     }
-}
+
