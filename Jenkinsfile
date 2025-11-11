@@ -3,11 +3,12 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                echo 'Iniciando build dos microsserviços...'
-                sh 'docker-compose build'
-                echo 'Build concluído com sucesso!'
-            }
+    steps {
+        echo "Iniciando build dos microsserviços..."
+        sh 'echo "Build simulado dos microsserviços da Vinheria"'
+    }
+}
+
         }
 
         stage('Test') {
